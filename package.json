@@ -1,0 +1,15 @@
+{
+  "name": "steven-roper-pluralsight-coding-exercise",
+  "version": "1.0.0",
+  "description": "Coding exercise for Pluralsight Software Craftsman application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Steven Roper",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}
