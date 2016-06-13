@@ -1,16 +1,25 @@
 import {expect} from 'chai';
 
-import {readInput} from '../src/core.js';
+import {changeInputToObjects} from '../src/core.js';
 
 describe('Package Installer - Application Logic', () => {
   
-  describe('readInput', () => {
+  describe('changeInputToObjects', () => {
     
     it('properly splits out all packages to be installed', () => {
       let inputList = ["KittenService: CamelCaser", "CamelCaser: "];
-      let outputList = readInput(inputList);
-
-      expect(outputList).to.equal(["Kittenservice", "CamelCaser"]);
+      let outputList = changeInputToObjects(inputList);
+      
+      expect(outputList).to.eql([
+        {
+          pkg: "KittenService",
+          dependency: "CamelCaser"
+        },
+        {
+          pkg: "CamelCaser",
+          dependency: null
+        }
+      ]);
     });
 
   });
