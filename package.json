@@ -4,7 +4,8 @@
   "description": "Coding exercise for Pluralsight Software Craftsman application.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tests": "mocha --compilers js:babel-core/register --recursive",
+    "tests:watch": "npm run tests -- --watch"
   },
   "author": "Steven Roper",
   "license": "ISC",
@@ -18,6 +19,6 @@
     "presets": [
       "es2015"
     ]
-  }
+  },
   "dependencies": {}
 }
