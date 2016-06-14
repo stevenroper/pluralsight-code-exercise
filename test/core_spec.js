@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 
-import {changeInputToObjects} from '../src/core.js';
+import {changeInputToObjects, getDependencies} from '../src/core.js';
 
 describe('Package Installer - Application Logic', () => {
   
@@ -21,6 +21,18 @@ describe('Package Installer - Application Logic', () => {
         }
       ]);
     });
+
+  });
+  
+  describe('getDependencies', () => {
+    
+    it('returns all dependencies, not pkgs', () => {
+      let inputList = ["KittenService: CamelCaser", "CamelCaser: "];
+      let outputObject = changeInputToObjects(inputList);
+      let listOfDependencies = getDependencies(outputObject);
+
+      expect(listOfDependencies).to.eql(["CamelCaser"]);
+    }); 
 
   });
 
