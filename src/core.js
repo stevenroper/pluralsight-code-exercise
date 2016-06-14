@@ -1,8 +1,8 @@
 export function changeInputToObjects(inputArray) {
   var allPackages = [];
   inputArray.map((pkg) => {
-    var splitPkg = pkg.split(':');
-    var dependency = splitPkg[1].trim();
+    var splitPkg = pkg.split(': ');
+    var dependency = splitPkg[1];
     allPackages.push({
       pkg: splitPkg[0],
       dependency: dependency.length > 0 ? dependency : null
@@ -11,18 +11,10 @@ export function changeInputToObjects(inputArray) {
   return allPackages;
 };
 
-//export function readInput(inputArray) {
-  //var pkgs = [];
-  //var dependencies = [];
-  //inputArray.map((p) => {
-    //var splitStr = p.split(':');
-    //pkgs.push(splitStr[0]);
-    //var dependency = splitStr[1].trim();
-    //if (dependency.length > 0) { dependencies.push(dependency); }; 
-  //});
-
-  //return {
-    //pkgs: pkgs,
-    //dependencies: dependencies
-  //}
-//}
+export function getDependencies(pkgsObject) {
+  var dependencies = [];
+  pkgsObject.map((pkg) => {
+    if (pkg.dependency) { dependencies.push(pkg.dependency) }; 
+  });
+  return dependencies;
+}
